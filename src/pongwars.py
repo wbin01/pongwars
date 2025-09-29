@@ -12,7 +12,7 @@ class PongWars(object):
         self.side2 = 'top_left'
         self.running = True
         self.matrix = [
-            {'x': x, 'y': y, 'color': 'black' if x >= 240 else 'grey'}
+            {'x': x, 'y': y, 'color': 'black' if x >= 240 else 'gold4'}
             for y in range(0, 480, 20) for x in range(0, 480, 20)]
 
     def exec(self):
@@ -22,9 +22,9 @@ class PongWars(object):
                 if event.type == pygame.QUIT:
                     self.running = False
             self.draw_wall()
-            pygame.draw.circle(self.screen, 'grey', self.p1, 20)
+            pygame.draw.circle(self.screen, 'gold4', self.p1, 20)
             pygame.draw.circle(self.screen, 'black', self.p2, 20)
-            self.side1 = self.pos(self.p1, self.side1, self.delta, 'grey')
+            self.side1 = self.pos(self.p1, self.side1, self.delta, 'gold4')
             self.side2 = self.pos(self.p2, self.side2, self.delta, 'black')
             pygame.display.flip()
             self.delta = self.clock.tick(60) / 100
@@ -55,7 +55,7 @@ class PongWars(object):
                             dire = dire.replace('right', 'left')
                         elif 'left' in dire:
                             dire = dire.replace('left', 'right')
-                        m['color'] = 'grey' if color == 'black' else 'black'
+                        m['color'] = 'gold4' if color == 'black' else 'black'
                     break
 
         return dire
