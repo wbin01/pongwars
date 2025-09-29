@@ -35,7 +35,6 @@ class PongWars(object):
             pygame.draw.rect(
                 self.screen, m['color'], pygame.Rect(m['x'], m['y'], 20, 20))
 
-
     def pos(self, player, dire, d, color):
         player.y = player.y + 40 * d if 'bo' in dire else player.y - 40 * d
         player.x = player.x + 40 * d if 'ri' in dire else player.x - 40 * d
@@ -48,32 +47,16 @@ class PongWars(object):
         if player.y <= 0:
             dire = dire.replace('top', 'bottom')
 
-
-        # ix, iy = int(player.x // 20), int(player.y // 20)
-        # m = self.matrix[iy * 24 + ix]
-
-        ix = min(int(player.x // 20), 23)
-        iy = min(int(player.y // 20), 23)
-        m = self.matrix[iy * 24 + ix]
-
-        if m['color'] == color:  # mesma cor que o player
-            if 'right' in dire:
-                dire = dire.replace('right', 'left')
-            elif 'left' in dire:
-                dire = dire.replace('left', 'right')
-
-        m['color'] = 'grey' if color == 'black' else 'black'
-
-        # for m in self.matrix:
-        #     if player.x > m['x'] and player.x < m['x'] + 40:
-        #         if player.y > m['y'] and player.y < m['y'] + 40:
-        #             if m['color'] == color:
-        #                 if 'right' in dire:
-        #                     dire = dire.replace('right', 'left')
-        #                 elif 'left' in dire:
-        #                     dire = dire.replace('left', 'right')
-        #                 m['color'] = 'grey' if color == 'black' else 'black'
-        #             break
+        for m in self.matrix:
+            if player.x > m['x'] and player.x < m['x'] + 40:
+                if player.y > m['y'] and player.y < m['y'] + 40:
+                    if m['color'] == color:
+                        if 'right' in dire:
+                            dire = dire.replace('right', 'left')
+                        elif 'left' in dire:
+                            dire = dire.replace('left', 'right')
+                        m['color'] = 'grey' if color == 'black' else 'black'
+                    break
 
         return dire
 
