@@ -1,5 +1,5 @@
 ## pongwars
 
-65 lines code pygame game 😎
+Less than 50 lines of code game
 
 ![Image](data/screen.jpg "screenshot")
