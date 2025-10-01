@@ -1,5 +1,5 @@
 ## pongwars
 
-Less than 50 lines of code game
+Less 40 lines-code game
 
 ![Image](data/screen.jpg "screenshot")
