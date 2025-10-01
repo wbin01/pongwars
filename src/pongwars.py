@@ -2,15 +2,15 @@ import pygame
 
 
 def hit(player, dire, dt, color):
-    player.y += 40 * dt if 'b' in dire else - 40 * dt
-    player.x += 40 * dt if 'r' in dire else - 40 * dt
+    player.y += 20 * dt if 'b' in dire else - 20 * dt
+    player.x += 20 * dt if 'r' in dire else - 20 * dt
     dire = dire.replace('r', 'l') if player.x >= 480 else dire
     dire = dire.replace('l', 'r') if player.x <= 0 else dire
     dire = dire.replace('b', 't') if player.y >= 480 else dire
     dire = dire.replace('t', 'b') if player.y <= 0 else dire
     for m in mx:
-        if player.x > m['x'] and player.x < m['x'] + 40:
-            if player.y > m['y'] and player.y < m['y'] + 40:
+        if player.x > m['x'] and player.x < m['x'] + 20:
+            if player.y > m['y'] and player.y < m['y'] + 20:
                 if m['cor'] == color:
                     if 'r' in dire:
                         dire = dire.replace('r', 'l')
@@ -35,6 +35,6 @@ while running:
     pygame.draw.circle(screen, 'black', p2, 10)
     side1, side2 = hit(p1, side1, dt, 'gold4'), hit(p2, side2, dt, 'black')
     pygame.display.flip()
-    dt = clock.tick(60) / 100
+    dt = clock.tick(60) / 80
 
 pygame.quit()
