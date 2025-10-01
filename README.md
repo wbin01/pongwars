@@ -2,4 +2,4 @@
 
 Less 40 lines-code game
 
-![Image](data/screen.jpg "screenshot")
+![Image](data/screen.png "screenshot")
